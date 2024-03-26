@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width-device, initial-scale=1">
+    <title>Semana1</title>
+</head>
+
+<body>
+    <h1>Atividade da semana1</h1>
+    <Script type="text/javascript">
+        document.write("Hello World!");
+    </Script><br>
+
+    <script>
+        var inputData = prompt("Digite um dado:");
+
+        var confirmCheckType = confirm("Deseja verificar o tipo do dado informado?");
+
+        if (confirmCheckType) {
+            var dataType = "";
+
+            if (!isNaN(inputData)) {
+                dataType = "Número";
+            } else if (typeof inputData === "string") {
+                dataType = "String";
+            } else {
+                dataType = "Outro tipo";
+            }
+
+            document.write("Tipo do dado informado: " + dataType);
+        } else {
+            document.write("Obrigado por visitar essa página");
+        }
+    </script>
+
+    <script>
+        function isPrime(num) {
+            if (num <= 1) {
+                return false;
+            }
+
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        var userInput = prompt("Digite um número inteiro positivo:");
+
+        var number = parseInt(userInput);
+
+        if (!isNaN(number) && number > 0) {
+            if (isPrime(number)) {
+                alert(number + " é um número primo.");
+            } else {
+                alert(number + " não é um número primo.");
+            }
+        } else {
+            alert("Entrada inválida. Por favor, digite um número inteiro positivo.");
+        }
+    </script>
+
+    <script>
+        var userInput = prompt("Digite um número inteiro positivo:");
+
+        var number = parseInt(userInput);
+
+        if (!isNaN(number) && number > 0) {
+            if (number % 2 === 0) {
+                alert(number + " é um número par.");
+            } else {
+                alert(number + " é um número ímpar.");
+            }
+        } else {
+            alert("Entrada inválida. Por favor, digite um número inteiro positivo.");
+        }
+    </script>
+
+    <script>
+        function calcularFatorial(numero) {
+            if (numero === 0 || numero === 1) {
+                return 1;
+            } else {
+                return numero * calcularFatorial(numero - 1);
+            }
+        }
+
+        var userInput = prompt("Digite um número inteiro positivo:");
+
+        var number = parseInt(userInput);
+
+        if (!isNaN(number) && number >= 0) {
+            var fatorial = calcularFatorial(number);
+            alert("O fatorial de " + number + " é: " + fatorial);
+        } else {
+            alert("Entrada inválida. Por favor, digite um número inteiro positivo.");
+        }
+    </script>
+    <br><br><br>
+
+    <a href="index.html">voltar</a>
+</body>
+
+
+
+</html>
