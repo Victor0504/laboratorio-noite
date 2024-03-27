@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercícios Semana 3</title>
+</head>
+<body>
+
+<h2>Exercícios Semana 3</h2>
+
+<div id="dataAtual"></div>
+
+<div id="relogio"></div>
+
+<div id="verificacaoPalindromo"></div>
+
+<script>
+    // Exibir a data atual
+    const diasDaSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
+    const meses = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+
+    const dataAtual = new Date();
+    const diaSemana = diasDaSemana[dataAtual.getDay()];
+    const dia = dataAtual.getDate();
+    const mes = meses[dataAtual.getMonth()];
+    const ano = dataAtual.getFullYear();
+
+    const dataFormatada = `${diaSemana}, ${dia} de ${mes} de ${ano}`;
+    
+    const dataAtualDiv = document.getElementById("dataAtual");
+    dataAtualDiv.innerHTML = "<strong>1. Data Atual:</strong> " + dataFormatada;
+
+    // Relógio que atualiza o horário a cada segundo usando setTimeout
+    function atualizarRelogio() {
+        const agora = new Date();
+        const hora = agora.getHours().toString().padStart(2, '0');
+        const minuto = agora.getMinutes().toString().padStart(2, '0');
+        const segundo = agora.getSeconds().toString().padStart(2, '0');
+
+        const relogioDiv = document.getElementById("relogio");
+        relogioDiv.innerHTML = "<strong>2. Horário atual:</strong> " + `${hora}:${minuto}:${segundo}`;
+        
+        setTimeout(atualizarRelogio, 1000); // Atualiza a cada segundo
+    }
+
+    atualizarRelogio();
+
+    // Verificar se uma palavra ou frase é um palíndromo
+    function verificarPalindromo(texto) {
+        const textoFormatado = texto.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
+        const reverso = textoFormatado.split('').reverse().join('');
+
+        if (textoFormatado === reverso) {
+            return `"${texto}" é um palíndromo!`;
+        } else {
+            return `"${texto}" não é um palíndromo.`;
+        }
+    }
+
+    const texto = prompt("Digite uma palavra ou frase para verificar se é um palíndromo:");
+    const verificacaoPalindromoDiv = document.getElementById("verificacaoPalindromo");
+    verificacaoPalindromoDiv.innerHTML = "<strong>3. Verificação de Palíndromo:</strong> " + verificarPalindromo(texto);
+</script>
+
+</body>
+</html>
